@@ -1,3 +1,4 @@
+from dataclasses import dataclass, fields
 from http.client import HTTPException
 from urllib.parse import urljoin
 import requests
