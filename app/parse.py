@@ -9,7 +9,7 @@ from app.file_manager import save_to_file
 SITE_URL = "https://quotes.toscrape.com/"
 
 
-def parse(path: str, url: str = SITE_URL, start_page: int = 1):
+def parse(path: str, url: str = SITE_URL, start_page: int = 1) -> None:
     page = start_page
 
     quotes = []
@@ -20,7 +20,7 @@ def parse(path: str, url: str = SITE_URL, start_page: int = 1):
         response = requests.get(new_url)
         try:
             response.raise_for_status()
-        except HTTPException as e:
+        except HTTPException:
             break
 
         quotes_to_add = collect_items(response.content)

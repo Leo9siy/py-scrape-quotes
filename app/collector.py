@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from app.data import Quote
 
 
-def collect_items(content) -> [Quote]:
+def collect_items(content: bytes) -> [Quote]:
     quotes = []
 
     parser = BeautifulSoup(content, "html.parser")
