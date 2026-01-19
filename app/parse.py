@@ -17,7 +17,7 @@ def parse(path: str, url: str = SITE_URL, start_page: int = 1) -> None:
     quotes = []
 
     while True:
-        new_url = urljoin(SITE_URL, f"page/{str(page)}")
+        new_url = urljoin(url, f"page/{str(page)}")
 
         response = requests.get(new_url)
         try:
@@ -37,7 +37,7 @@ def parse(path: str, url: str = SITE_URL, start_page: int = 1) -> None:
 
 
 def main(output_csv_path: str) -> None:
-    parse(output_csv_path)
+    parse(output_csv_path, SITE_URL)
 
 
 if __name__ == "__main__":
